@@ -5,7 +5,62 @@ cft.data.all cft
 </title>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./tree2.css">
+<style type="text/css">
+
+
+* 
+{ 
+  font-family: verdana, arial, helvetica, sans-serif; 
+  font-size: 10pt; 
+} 
+
+ul, #myUL {
+  list-style-type: none;
+  padding: 0;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  font-weight: bold;
+  background: Brown;
+  height: 25px;
+  width: 525px;
+  border: 3px solid white; 
+  color: white;
+  display: block;
+}
+
+.caret::before {
+  content: "+";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  content: "-";
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+
+
+
+</style>
+
+
+
 </head>
 <body>
 
@@ -48,8 +103,7 @@ aa
 - Гранд Тур: одну на дорожку» / The Grand Tour: One for the Road
 
 + Убийства в одном здании» / «Only Murders in the Building» Лучший комедийный детектив наших дней
-
-+ Медленные лошади» / Slow Horses
++ Медленные лошади 4 / Slow Horses
 
 
 + Пять копеек снятый ещё в 2022 году, «Пять копеек
@@ -914,6 +968,18 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 </body>
 
-  <script src="./tree2.js"></script>
+<script type="text/javascript">
+
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+
+</script>
 
 </html>
