@@ -15,6 +15,15 @@ div#t
 
 <script type="text/javascript">
 
+var mycolor = "yellow"
+
+function setColor()
+{
+  var mycolors = ['teal', 'purple', 'lime', 'cyan', 'maroon', 'blue',  'green', 'yellow', 'orange', 'olive'];
+  var x = Math.floor(Math.random() * mycolors.length);
+  mycolor = mycolors[x];
+}
+
 
 function getV()
 {
@@ -42,6 +51,8 @@ window.onload =  (function () {
   if (par == 'invert') 
     bInvert = true;
   
+  setColor();
+
 //    canvas = $("#canvas")[0];
   canvas = document.getElementById("canvas");
 
@@ -59,7 +70,7 @@ window.onload =  (function () {
   context.lineWidth = 0.5;
   context.strokeStyle = "black"; 
   if (bInvert) {
-    context.strokeStyle = "yellow"; // "white";
+    context.strokeStyle = mycolor; // "yellow"; // "white";
     context.fillStyle = "black";
     context.fillRect(0, 0, width, height);
   }
